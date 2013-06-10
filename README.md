@@ -27,7 +27,11 @@ A lot of assembly required. [Follow my tutorial for specifics](http://kegduino.o
 
 * [Set up the 12V to 5v Step Down](http://arduino.cc/en/Main/Standalone)
 * Connect the output from the 5V step down to the Vin on the arduino
-* [Connect the solenoid](bildr.org/2011/03/high-power-control-with-arduino-and-tip120/) - Note: Make sure the solenoid is connected to arduinos Digital 2 pin.
+* [Connect the solenoid](bildr.org/2011/03/high-power-control-with-arduino-and-tip120/) - This basically acts as a gate. Input allows flow through the 12V line to turn the solenoid on/off.
+    > Facing: the left prong of the transistor goes through a 10K resistor to the Digital 2 pin on the arduino
+    > The middle pin connects straight to the - side of the Solenoid. The middle pin also connects from 1N4004 diode into the +12V line (striped side in the +12V).
+    > The right pin on the transistor goes to ground
+    > The + side of the solenoid goes directly into +12V line.
 * Connect the flow meter. Yellow goes to Arduino Digital 3, red to +5v, black to common ground.
 * Connect the temperature sensor. +5v into pin 1. Analog 4 from the arduino goes into pin 2. +5v through a 10K resistor also goes into pin 2. Pin 3 unused. Pin 4 to common ground.
 * Ground the arduino
@@ -35,7 +39,11 @@ A lot of assembly required. [Follow my tutorial for specifics](http://kegduino.o
     >{numberofounces}\n
     >{nameofbeer}
 * Put beer.bmp on the sd card
-* Upload the .ino file to the arduino
+* Upload [this file](https://github.com/myoung34/kegduino/blob/master/kegduino.ino) to the arduino
+* [Get the Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library)
+* [Get the Adafruit TFTLCD library](https://github.com/adafruit/TFTLCD-Library)
+* [Get the Adafruit TouchScreen library](https://github.com/adafruit/Touch-Screen-Library)
+* Change NUMSAMPLES to 3 in libraries/TouchScreen/TouchScreen.cpp! (This makes the touch screen refresh to a median value, meaning that on each refresh it will not try to detect a new press, but continue to realize a hold)
 * If you did everything right, congrats!
 
 ## Thanks ##
