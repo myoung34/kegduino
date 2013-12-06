@@ -2,6 +2,7 @@ kegduino
 ========
 
 Arduino Kegerator Controller
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/myoung34/kegduino/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ## What is it ##
 
